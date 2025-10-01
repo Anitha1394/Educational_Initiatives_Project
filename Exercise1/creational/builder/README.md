@@ -1,20 +1,36 @@
-# Builder Pattern – Pizza Example
+# Builder Pattern: Pizza Builder
 
 ## Overview
-This project demonstrates the **Builder design pattern** in Java. The pattern is used to build complex objects step by step. 
+This project demonstrates the **Builder Design Pattern** using a **console-based pizza ordering system** in Java.  
+The application allows users to customize a pizza by selecting **size, crust, and toppings**, then constructs the pizza using the Builder pattern.
 
 ---
 
-## Structure
-- **Pizza:** Represents the pizza object.  
-- **PizzaBuilder:** Provides methods to build pizza step by step.  
-- **Main:** Demonstrates building pizzas interactively and prints the details.
+## Features
+- Choose **pizza size** (`small`, `medium`, `large`).  
+- Choose **crust type** (`thin`, `thick`).  
+- Add multiple **toppings** dynamically.  
+- Ensures mandatory fields are validated (size and crust).  
+- Creates an **immutable Pizza object** using the Builder pattern.  
+- User-friendly console interface.
 
 ---
 
 ## How to Run
-1. Make sure **Java is installed** on your machine.  
-2. Open a terminal and navigate to the project folder.  
-3. Compile the files:  
+1. Compile all classes:
 ```bash
-javac -d . src/builder/*.java
+javac -d out src/creational/builder/src/*.java
+java -cp out creational.builder.src.Main
+```
+## Example usage
+```bash
+=== Pizza Builder ===
+Enter pizza size (small/medium/large): medium
+Enter crust type (thin/thick): thin
+Add a topping (or type 'done' to finish): cheese
+Add a topping (or type 'done' to finish): olives
+Add a topping (or type 'done' to finish): done
+
+Your pizza is ready!
+Pizza [Size=medium, Crust=thin, Toppings=[cheese, olives]]
+```
