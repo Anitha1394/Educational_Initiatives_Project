@@ -48,8 +48,18 @@ public class ConsoleUI {
         String start = sc.nextLine();
         System.out.print("End Time (HH:mm or HHmm): "); 
         String end = sc.nextLine();
+        String priority;
+    while (true) {
         System.out.print("Priority (High/Medium/Low): "); 
-        String priority = sc.nextLine();
+        priority = sc.nextLine().trim();
+        if (priority.equalsIgnoreCase("High") || 
+            priority.equalsIgnoreCase("Medium") || 
+            priority.equalsIgnoreCase("Low")) {
+            break;
+        } else {
+            System.out.println("Invalid priority! Please enter High, Medium, or Low.");
+        }
+    }
 
         if (!TimeUtils.isValidTime(start) || !TimeUtils.isValidTime(end)) {
             System.out.println("Invalid time format."); 
