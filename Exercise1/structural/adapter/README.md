@@ -1,27 +1,39 @@
-# Adapter Pattern – Payment Example
+# Adapter Pattern – Interactive Payment System
 
 ## Overview
-This project demonstrates the **Adapter design pattern** in Java. The Adapter pattern allows **incompatible interfaces to work together**. 
+This project demonstrates the **Adapter design pattern** using a **console-based payment system** in Java.  
+The Adapter pattern allows incompatible interfaces to work together.  
+
+In this example, the `PayPalPayment` class has its own interface (`sendPayment()`), which is adapted to the common `PaymentProcessor` interface so it can be used alongside `StripePayment`.
 
 ---
 
-## Structure
-- **Payment:** Interface defining the `pay(amount)` method.  
-- **PayPalPayment:** Adaptee class with its own method to process PayPal payments.  
-- **StripePayment:** Adaptee class with its own method to process Stripe payments.  
-- **PaymentAdapter:** Adapter class that allows PayPal and Stripe to implement the `Payment` interface.  
-- **Main:** Interactive program where the user chooses a payment method and enters the amount to pay.
+## Features
+- Supports multiple payment methods: **Stripe** and **PayPal**.  
+- Uses an **Adapter** to integrate PayPal into the standard `PaymentProcessor` interface.  
+- Interactive console-based interface for choosing payment method and entering amount.  
+- Demonstrates **loose coupling** and **interface compatibility**.
 
 ---
 
 ## How to Run
-1. Ensure **Java is installed** on your machine.  
-2. Open a terminal and navigate to the project folder.  
-3. Compile the Java files:  
+1. Compile all classes:
 ```bash
-javac -d . src/adapter/*.java
-Run the Main class:
+javac -d out src/structural/adapter/src/*.java
+java -cp out structural.adapter.src.Main
+```
+## Example Usage
+```bash
+=== Adapter Pattern: Interactive Payment ===
 
-java adapter.Main
+Choose payment method (stripe/paypal) or 'exit' to quit: stripe
+Enter amount to pay: 50
+Processing payment of $50.0 via Stripe.
 
-Enter a payment method (paypal or stripe) and an amount. Type exit to quit.
+Choose payment method (stripe/paypal) or 'exit' to quit: paypal
+Enter amount to pay: 75
+Processing payment of $75.0 via PayPal.
+
+Choose payment method (stripe/paypal) or 'exit' to quit: exit
+Exiting Payment System.
+```
